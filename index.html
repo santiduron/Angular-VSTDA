@@ -17,7 +17,7 @@
 			<hr/>
 			<div class="row">
 				<div class="col-md-4">
-					Add todo Item : <input type="text" ng-model="todoCtrl.item"/>
+					Add todo Item : <input type="text" ng-model="todoCtrl.text"/>
 					<select ng-model="todoCtrl.priority">
 							<option value="1">High</option>
 							<option value="2">Medium</option>
@@ -28,12 +28,12 @@
 				<div class="col-md-8">
 					<button id="priorityButton" name="button" class="btn btn-primary" ng-click="sortPriority = 'priority'">order high-low</button>
 					<button id="priorityButton" name="button" class="btn btn-primary" ng-click="sortPriority = '-priority'">order low-high</button>
-					<button id="priorityButton" name="button" class="btn btn-primary" ng-click="sortPriority = 'item'">order alphabetically</button>
+					<button id="priorityButton" name="button" class="btn btn-primary" ng-click="sortPriority = 'text'">order alphabetically</button>
 
-					<table>
+					<table class="table table-bordered">
 						<tbody>
 							<tr ng-repeat="value in todoCtrl.todos | orderBy:sortPriority" ng-class="{'bg-info': {{todoCtrl.priority}} === 3, 'bg-warning': {{todoCtrl.priority}} === 2, 'bg-danger': {{todoCtrl.priority}} === 1}">
-								<td>{{value.item}}</td>
+								<td>{{value.text}}</td>
 							</tr>
 						</tbody>
 					</table>
@@ -51,8 +51,9 @@
 	<!-- endbower -->
 
 	<!-- inject:js -->
-	<script src="app/angular.js"></script>
+	<script src="app/app.module.js"></script>
 	<script src="app/todo/todo.controller.js"></script>
+	<script src="app/todo/todo.factory.js"></script>
 	<!-- endinject -->
 </body>
 

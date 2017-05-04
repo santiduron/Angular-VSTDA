@@ -1,19 +1,36 @@
-angular.module('myApp').controller('TodoController', TodoController);
+(function() {
+    'use strict';
 
-TodoController.$inject = [];
+    angular
+        .module('myApp')
+        .controller('TodoController', TodoController);
 
-/* @ngInject */
-function TodoController() {
+    TodoController.$inject = ['todoFactory'];
+    /* @ngInject */
+    function TodoController(todoFactory) {
+        var vm = this;
+        vm.todos = [];
 
-    var vm = this;
-    vm.todos = [];
+        vm.addTodo = function() {
+            todoFactory
+                .create({
+                    "text": vm.text,
+                    "priority": vm.priority
+                })
+                .then(function(data) {
+                    vm.todos.push(data);
+                });
+        }
 
-    vm.addTodo = function() {
-
-        vm.todos.push({
-            "item": vm.item,
-            "priority": vm.priority
-        });
-        vm.item = '';
+        // activate();
+        //
+        // function activate() {
+        //     todoFactory
+        //         .getAll()
+        //         .then(function(data) {
+        //             vm.todos = data;
+        //         });
+        // 
+        // }
     }
-}
+})();

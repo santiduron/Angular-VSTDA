@@ -1,7 +1,6 @@
 {
-  "name": "angular-vstda",
+  "name": "vstda-frontend",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,5 +16,15 @@
     "gulp-open": "^2.0.0",
     "gulp-util": "^3.0.8",
     "wiredep": "^4.0.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/santiduron/Angular-VSTDA.git"
+  },
+  "bugs": {
+    "url": "https://github.com/santiduron/Angular-VSTDA/issues"
+  },
+  "homepage": "https://github.com/santiduron/Angular-VSTDA#readme",
+  "description": ""
 }
